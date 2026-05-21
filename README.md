@@ -39,10 +39,11 @@ Supplemental documents under [`docs/`](./docs/), all anchored in [RESEARCH.md §
 | [`docs/gaussian-splats.md`](./docs/gaussian-splats.md) | Low-grade phone-video splats, static vs. articulating, GauHuman → HandSplat → GraG research lineage |
 | [`docs/mobile-capture-pipeline.md`](./docs/mobile-capture-pipeline.md) | Web app + VPS architecture, auto-labeling strategy, compute sizing |
 | [`docs/open-questions.md`](./docs/open-questions.md) | Consent / biometric data, license math, v1 scope, sequencing |
+| [`docs/roadmap.md`](./docs/roadmap.md) | Starting-point roadmap: synthetic-first dataset → ship Hand_AI v3 → per-player splat capture for personalization |
 
 ## Status
 
-**Phase 1: Research.** Currently surveying the landscape. No code yet, no roadmap yet — the roadmap depends on what Phase 1 surfaces.
+**Phase 1: Research.** Survey of the landscape is captured in RESEARCH.md + `docs/`. A starting-point roadmap is now drafted in [`docs/roadmap.md`](./docs/roadmap.md) but explicitly framed as a starting point, not a commitment — Phase 0 is a gate that could end the whole project.
 
 ## Related repos
 

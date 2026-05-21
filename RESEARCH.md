@@ -214,6 +214,7 @@ The rest of the work is split into topic-scoped supplemental docs in [`docs/`](.
 | [`docs/gaussian-splats.md`](./docs/gaussian-splats.md) | Low-grade splats for hand assets | Can a phone video produce a usable hand splat today? Static vs. articulating. Polycam/Luma vs. research lineage (GauHuman → HandSplat → GraG). |
 | [`docs/mobile-capture-pipeline.md`](./docs/mobile-capture-pipeline.md) | Web app + VPS architecture | Why mobile-camera capture specifically? Auto-labeling strategy. What the VPS actually does. |
 | [`docs/open-questions.md`](./docs/open-questions.md) | Consent, licensing, scope, sequencing | Biometric data legality. MANO/NIMBLE license math. v1 scope. What we don't know yet. |
+| [`docs/roadmap.md`](./docs/roadmap.md) | Starting-point roadmap (synthetic-first → personal hyperpersonalization) | Phase 0 cheap experiment, Phase 1 synthetic baseline beating v2.2, Phase 2 ship Hand_AI v3, Phase 3 per-player splat capture for personalization. |
 
 ### How this connects back
 

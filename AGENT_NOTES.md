@@ -29,8 +29,9 @@ Supplemental docs, all anchored to RESEARCH.md §8 as their parent, with sibling
 - [`docs/gaussian-splats.md`](./docs/gaussian-splats.md) — phone-video splats. **Key finding:** static held poses scannable today via Polycam/Luma; articulating hands are research-grade only (GauHuman → HandSplat → GraG lineage). Liang et al. benchmark calls dynamic methods "fast and brittle."
 - [`docs/mobile-capture-pipeline.md`](./docs/mobile-capture-pipeline.md) — web app + VPS. **Key finding:** real role is capturing mobile-camera artifacts the synthetic pipeline can't fake; MediaPipe auto-labels handle easy cases, low-confidence frames are the gold.
 - [`docs/open-questions.md`](./docs/open-questions.md) — consent / biometric law, MANO/NIMBLE license restrictions, v1 scope, sequencing.
+- [`docs/roadmap.md`](./docs/roadmap.md) — **starting-point roadmap** (not finalized). Phase 0 cheap experiment → Phase 1 synthetic baseline beating v2.2 → Phase 2 ship Hand_AI v3 → Phase 3 per-player splat capture for personalization → Phase 4 optional opt-in dataset contribution. Warren's framing: synthetic-first custom dataset for Hand_AI's game, then a tool letting players capture 3D representations of their own hands to fine-tune the AI to their use.
 
-**The spine recommendation across all docs:** build synthetic-first (Layer 1), then mobile capture (Layer 2), then splats (Layer 3 or never). Each layer is independently useful and fails gracefully. **But run the cheap experiment from §7 first** — test Google's Gesture Recognizer head-to-head against v2.2 heuristics before committing to dataset capture at all.
+**The spine recommendation across all docs:** build synthetic-first (Layer 1), then mobile capture (Layer 2), then splats (Layer 3 or never). Each layer is independently useful and fails gracefully. **But run the cheap experiment from §7 first** — test Google's Gesture Recognizer head-to-head against v2.2 heuristics before committing to dataset capture at all. This is encoded as Phase 0 of [`docs/roadmap.md`](./docs/roadmap.md).
 
 ## Active design rules (carried over from Hand_AI)
 
@@ -45,9 +46,9 @@ These conventions apply across both repos:
 
 ## Likely next steps (not committed)
 
-These are the threads Warren left open, not a roadmap. Pick whichever is in scope when the session starts:
+These are the threads Warren left open. Pick whichever is in scope when the session starts. **A starting-point roadmap is now drafted at [`docs/roadmap.md`](./docs/roadmap.md)** — it's framed as a starting point with explicit go/no-go gates, not a commitment. Open questions for Warren are listed in that doc's final section.
 
-1. **Build a roadmap** for what comes after Phase 1 research. This is the explicit blocker for everything else. The §8 architecture and `docs/` wiki are now an input to that roadmap conversation, not a substitute.
+1. **Iterate on the roadmap.** [`docs/roadmap.md`](./docs/roadmap.md) is a starting point. Warren has open questions enumerated at the bottom of that doc — Phase 0 gate confirmation, Phase 1 vocab scope, Phase 3 personalization granularity, account model decision, cost ceiling.
 2. **Run the cheap experiment from `RESEARCH.md` §7** — canned MediaPipe Gesture Recognizer vs. Hand_AI v2.2 heuristics on the 12 grill-round photos. Per [`docs/open-questions.md`](./docs/open-questions.md#sequencing--what-to-build-first), this is the highest-leverage thing to do *before* committing to dataset capture, because if heuristics tie/win the whole capture project may be solving the wrong problem.
 3. **First synthetic spike:** per [`docs/synthetic-rendering.md`](./docs/synthetic-rendering.md#practical-roadmap-notes), clone HandSynthesis, render ~10K images of Hand_AI's current gesture set, train an MLP head on landmarks, evaluate against v2.2 heuristics. Tests whether the synthetic-only path has legs without any mobile-web infrastructure.
 4. **Try HaGRIDv2** (`RESEARCH.md` §6.1 row 2) on Hand_AI's failure cases to see how the public state of the art handles palm-down foreshortening.
