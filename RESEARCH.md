@@ -215,6 +215,7 @@ The rest of the work is split into topic-scoped supplemental docs in [`docs/`](.
 | [`docs/mobile-capture-pipeline.md`](./docs/mobile-capture-pipeline.md) | Web app + VPS architecture | Why mobile-camera capture specifically? Auto-labeling strategy. What the VPS actually does. |
 | [`docs/open-questions.md`](./docs/open-questions.md) | Consent, licensing, scope, sequencing | Biometric data legality. MANO/NIMBLE license math. v1 scope. What we don't know yet. |
 | [`docs/roadmap.md`](./docs/roadmap.md) | Starting-point roadmap (synthetic-first → personal hyperpersonalization) | Phase 0 cheap experiment, Phase 1 synthetic baseline beating v2.2, Phase 2 ship Hand_AI v3, Phase 3 per-player splat capture for personalization. |
+| [`docs/experiments/phase0-gesture-recognizer.md`](./docs/experiments/phase0-gesture-recognizer.md) | Phase 0 experiment record — canned MediaPipe Gesture Recognizer on the 12 v2.2 grill-round photos | Did the canned model beat heuristics? (Result: 0/12; mixed signal, see writeup for caveats and decision.) Reproducible bundle in [`tests/phase0-gesture-recognizer/`](./tests/phase0-gesture-recognizer/). |
 
 ### How this connects back
 

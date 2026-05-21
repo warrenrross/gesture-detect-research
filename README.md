@@ -40,6 +40,7 @@ Supplemental documents under [`docs/`](./docs/), all anchored in [RESEARCH.md §
 | [`docs/mobile-capture-pipeline.md`](./docs/mobile-capture-pipeline.md) | Web app + VPS architecture, auto-labeling strategy, compute sizing |
 | [`docs/open-questions.md`](./docs/open-questions.md) | Consent / biometric data, license math, v1 scope, sequencing |
 | [`docs/roadmap.md`](./docs/roadmap.md) | Starting-point roadmap: synthetic-first dataset → ship Hand_AI v3 → per-player splat capture for personalization |
+| [`docs/experiments/phase0-gesture-recognizer.md`](./docs/experiments/phase0-gesture-recognizer.md) | Phase 0 experiment record — canned MediaPipe Gesture Recognizer vs. Hand_AI v2.2 on the 12 grill-round photos. Reproducible bundle at [`tests/phase0-gesture-recognizer/`](./tests/phase0-gesture-recognizer/). |
 
 ## Status
 
