@@ -18,6 +18,19 @@ Hand_AI v2.2 ships a working browser-based gesture classifier built on hand-tune
 - Six follow-on threads in §4, including the registerable-embedding pattern (Meng et al. 2024 / FingerNet) and the MediaPipe + LSTM family.
 - §6: tables of grabbable datasets and pretrained open-weight models.
 - §7: open questions framing two distinct upgrade paths — static-registerable vs temporal-LSTM.
+- §8: **custom dataset capture concept** — entry point + index into the [`docs/`](./docs/) wiki. Three-layer architecture (synthetic CGI + mobile-web capture + low-grade splats).
+
+## What's in `docs/` today (Karpathy llm-wiki style)
+
+Supplemental docs, all anchored to RESEARCH.md §8 as their parent, with sibling cross-links between each:
+
+- [`docs/dataset-architecture.md`](./docs/dataset-architecture.md) — three-layer side-by-side framing, v1 architecture, failure modes / graceful degradation.
+- [`docs/synthetic-rendering.md`](./docs/synthetic-rendering.md) — MANO / NIMBLE / DART / HandSynthesis. **Key finding:** CVPR 2025 HandSynthesis paper shows synthetic-only training hits 84–97% of real-data accuracy. Code released at [github.com/delaprada/HandSynthesis](https://github.com/delaprada/HandSynthesis).
+- [`docs/gaussian-splats.md`](./docs/gaussian-splats.md) — phone-video splats. **Key finding:** static held poses scannable today via Polycam/Luma; articulating hands are research-grade only (GauHuman → HandSplat → GraG lineage). Liang et al. benchmark calls dynamic methods "fast and brittle."
+- [`docs/mobile-capture-pipeline.md`](./docs/mobile-capture-pipeline.md) — web app + VPS. **Key finding:** real role is capturing mobile-camera artifacts the synthetic pipeline can't fake; MediaPipe auto-labels handle easy cases, low-confidence frames are the gold.
+- [`docs/open-questions.md`](./docs/open-questions.md) — consent / biometric law, MANO/NIMBLE license restrictions, v1 scope, sequencing.
+
+**The spine recommendation across all docs:** build synthetic-first (Layer 1), then mobile capture (Layer 2), then splats (Layer 3 or never). Each layer is independently useful and fails gracefully. **But run the cheap experiment from §7 first** — test Google's Gesture Recognizer head-to-head against v2.2 heuristics before committing to dataset capture at all.
 
 ## Active design rules (carried over from Hand_AI)
 
@@ -34,10 +47,11 @@ These conventions apply across both repos:
 
 These are the threads Warren left open, not a roadmap. Pick whichever is in scope when the session starts:
 
-1. **Build a roadmap** for what comes after Phase 1 research. This is the explicit blocker for everything else.
-2. **Cheap experiment from `RESEARCH.md` §7:** run the canned MediaPipe Gesture Recognizer head-to-head against Hand_AI v2.2 heuristics on the same 12 photos from the v2.1/v2.2 grill rounds. Would clarify whether we're reinventing or outperforming.
-3. **Try HaGRIDv2** (`RESEARCH.md` §6.1 row 2) on Hand_AI's failure cases to see how the public state of the art handles palm-down foreshortening.
-4. **Capture-tool design.** Eventually this repo houses software to gather labeled gesture data. The decision deferred today: Python (matches ML tooling) or web (matches Hand_AI). Likely both — web for capture, Python for evaluation.
+1. **Build a roadmap** for what comes after Phase 1 research. This is the explicit blocker for everything else. The §8 architecture and `docs/` wiki are now an input to that roadmap conversation, not a substitute.
+2. **Run the cheap experiment from `RESEARCH.md` §7** — canned MediaPipe Gesture Recognizer vs. Hand_AI v2.2 heuristics on the 12 grill-round photos. Per [`docs/open-questions.md`](./docs/open-questions.md#sequencing--what-to-build-first), this is the highest-leverage thing to do *before* committing to dataset capture, because if heuristics tie/win the whole capture project may be solving the wrong problem.
+3. **First synthetic spike:** per [`docs/synthetic-rendering.md`](./docs/synthetic-rendering.md#practical-roadmap-notes), clone HandSynthesis, render ~10K images of Hand_AI's current gesture set, train an MLP head on landmarks, evaluate against v2.2 heuristics. Tests whether the synthetic-only path has legs without any mobile-web infrastructure.
+4. **Try HaGRIDv2** (`RESEARCH.md` §6.1 row 2) on Hand_AI's failure cases to see how the public state of the art handles palm-down foreshortening.
+5. **Capture-tool design.** If/when this proceeds, the architecture is sketched in [`docs/mobile-capture-pipeline.md`](./docs/mobile-capture-pipeline.md). Open decisions before any code: consent UX, account-vs-anonymous, gesture vocabulary scope, license for the resulting dataset (see [`docs/open-questions.md`](./docs/open-questions.md)).
 
 ## Sibling repos and where they fit
 
