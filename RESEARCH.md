@@ -191,4 +191,36 @@ Distilled from §2–§5. What's reachable if we decide to retrain or fine-tune 
 
 ---
 
-*Sources cited inline. Companion to [AGENT_NOTES.md](https://github.com/warrenrross/Hand_AI/blob/main/AGENT_NOTES.md) (engineering decisions + threshold provenance) and [README.md](https://github.com/warrenrross/Hand_AI/blob/main/README.md) (gesture vocabulary + roadmap). Sections: 1. Lineage · 2. thehandtrick · 3. Hand_AI · 4. Follow-on threads · 5. Academic parent (OpenPose / CMU Panoptic) · 6. Grabbable resources · 7. Open questions.*
+## 8. Custom dataset capture — concept and components
+
+The long-running question behind this repo: **should Warren build software to gather a custom hand-gesture dataset?** The §6 grabbable resources are all useful but none are a perfect fit for the Hand_AI use case — webcam/phone selfies under uncontrolled lighting, with the gesture vocabulary Warren actually wants. A custom capture tool is plausible if (a) no existing dataset covers the gap and (b) no off-the-shelf labeling tool already does this. Both appear to be true.
+
+The initial concept (from Warren, May 2026): a **mobile-friendly web app backed by a VPS** that makes it easy for volunteers to contribute labeled hand images.
+
+Research has surfaced three viable data sources that are best treated as **cooperating layers**, not as alternatives:
+
+1. **Synthetic CGI rendering** — MANO/NIMBLE rigs + Blender + domain randomization. Free perfect labels at scale. The CVPR 2025 [HandSynthesis](https://github.com/delaprada/HandSynthesis) paper shows synthetic-only training can reach **84–97%** of real-data accuracy.
+2. **Mobile-web volunteer capture** — phone-camera selfies, auto-labeled with MediaPipe HandLandmarker. Real-world artifacts, real demographic variation, real consent and moderation questions.
+3. **Low-grade Gaussian splats** — 30-second phone-video orbits of held poses. Turns one volunteer-minute into thousands of re-rendered labeled views. Aspirational but possibly within reach.
+
+The rest of the work is split into topic-scoped supplemental docs in [`docs/`](./docs/) — see the index below. RESEARCH.md remains the lineage/state-of-the-art anchor; the docs go deep on the dataset-capture tooling decision.
+
+### Sub-topic index (`docs/`)
+
+| Doc | Scope | Key questions answered |
+|---|---|---|
+| [`docs/dataset-architecture.md`](./docs/dataset-architecture.md) | The three-layer side-by-side framing | How do synthetic, mobile capture, and splats divide labor? What's the v1 architecture? What fails gracefully? |
+| [`docs/synthetic-rendering.md`](./docs/synthetic-rendering.md) | MANO/NIMBLE/DART/HandSynthesis pipelines | What synthetic tools exist? What's the sim-to-real gap actually made of? What do the ablations say to prioritize? |
+| [`docs/gaussian-splats.md`](./docs/gaussian-splats.md) | Low-grade splats for hand assets | Can a phone video produce a usable hand splat today? Static vs. articulating. Polycam/Luma vs. research lineage (GauHuman → HandSplat → GraG). |
+| [`docs/mobile-capture-pipeline.md`](./docs/mobile-capture-pipeline.md) | Web app + VPS architecture | Why mobile-camera capture specifically? Auto-labeling strategy. What the VPS actually does. |
+| [`docs/open-questions.md`](./docs/open-questions.md) | Consent, licensing, scope, sequencing | Biometric data legality. MANO/NIMBLE license math. v1 scope. What we don't know yet. |
+
+### How this connects back
+
+- The motivation for any of this traces to **§4.6** (the Reddit thread observing MediaPipe landmarks degrade on mobile cameras) and **§7** (open question about capturing our own labeled gesture data).
+- The output of this work — if it goes anywhere — feeds either of the §7 upgrade paths: static per-frame classifier (kinivi/Kazuhito00-style MLP head, or Google Gesture Recognizer via Model Maker) or temporal LSTM (§4.6 family). The dataset is the same either way.
+- Existing public datasets we'd compete with or augment are catalogued in **§6.1**; pretrained models we'd train on top of are in **§6.2**.
+
+---
+
+*Sources cited inline. Companion to [AGENT_NOTES.md](https://github.com/warrenrross/Hand_AI/blob/main/AGENT_NOTES.md) (engineering decisions + threshold provenance) and [README.md](https://github.com/warrenrross/Hand_AI/blob/main/README.md) (gesture vocabulary + roadmap). Sections: 1. Lineage · 2. thehandtrick · 3. Hand_AI · 4. Follow-on threads · 5. Academic parent (OpenPose / CMU Panoptic) · 6. Grabbable resources · 7. Open questions · 8. Custom dataset capture (→ [docs/](./docs/)).*

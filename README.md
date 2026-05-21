@@ -24,7 +24,21 @@ A working space for figuring out *what comes after* hand-tuned threshold heurist
   - §5: the academic parent (OpenPose / CMU Panoptic).
   - §6: datasets and pretrained models actually grabbable today.
   - §7: open questions on upgrade-path direction.
+  - §8: custom dataset capture concept — entry point into the [`docs/`](./docs/) wiki below.
+- **[`docs/`](./docs/)** — topic-scoped supplemental docs in a Karpathy-style wiki layout. Each doc links to its parent (RESEARCH.md §8) and its siblings. See the index below.
 - **[`AGENT_NOTES.md`](./AGENT_NOTES.md)** — session-to-session handoff notes, matches the convention in [Hand_AI](https://github.com/warrenrross/Hand_AI/blob/main/AGENT_NOTES.md).
+
+## Docs index
+
+Supplemental documents under [`docs/`](./docs/), all anchored in [RESEARCH.md §8](./RESEARCH.md#8-custom-dataset-capture--concept-and-components):
+
+| Doc | Scope |
+|---|---|
+| [`docs/dataset-architecture.md`](./docs/dataset-architecture.md) | Three-layer side-by-side framing (synthetic + mobile + splats), v1 architecture, failure modes |
+| [`docs/synthetic-rendering.md`](./docs/synthetic-rendering.md) | MANO / NIMBLE / DART / HandSynthesis pipelines, CVPR 2025 sim-to-real ablations |
+| [`docs/gaussian-splats.md`](./docs/gaussian-splats.md) | Low-grade phone-video splats, static vs. articulating, GauHuman → HandSplat → GraG research lineage |
+| [`docs/mobile-capture-pipeline.md`](./docs/mobile-capture-pipeline.md) | Web app + VPS architecture, auto-labeling strategy, compute sizing |
+| [`docs/open-questions.md`](./docs/open-questions.md) | Consent / biometric data, license math, v1 scope, sequencing |
 
 ## Status
 
