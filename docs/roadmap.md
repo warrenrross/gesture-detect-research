@@ -35,6 +35,25 @@ Before committing to anything in Phase 1+, run the cheap experiment from [RESEAR
 
 This phase is non-negotiable. Skipping it risks building an entire pipeline that loses to a 10-line MediaPipe call.
 
+### Phase 0 — first run (May 21, 2026)
+
+First pass executed. **Full writeup:** [`docs/experiments/phase0-gesture-recognizer.md`](./experiments/phase0-gesture-recognizer.md). **Reproducible bundle:** [`tests/phase0-gesture-recognizer/`](../tests/phase0-gesture-recognizer/).
+
+Headline numbers on the 12 v2.2 grill-round photos, all ground-truth POINT:
+
+- Canned Gesture Recognizer, raw screenshots: **0/12** `Pointing_Up` matches, **0/12** hands detected at all.
+- Canned Gesture Recognizer, browser-chrome cropped: **0/12** `Pointing_Up` matches, **3/12** hands detected — and on those 3, the model returned literal label `"None"` with 0.82–0.88 confidence ("hand seen, no gesture matched").
+- Hand_AI v2.2 heuristics: fires POINT on all 12 (ground truth).
+
+**Caveat:** these were screenshots with HUD overlays, stickers, and low contrast — not raw webcam frames. The detection failures are mostly an input-quality artifact, not a fair model evaluation. What is *not* a caveat is the **label-vocabulary mismatch**: even on the 3 photos where the model found the hand, side-on and palm-down points returned `"None"`. `Pointing_Up` is not the same class as Hand_AI's "point in any direction."
+
+**Decision:** Mixed result — proceed to Phase 1 cautiously. Two cheap follow-ups before committing to full synthetic infrastructure:
+
+1. Rerun on raw webcam frames (not screenshots) to separate detection failure from classification failure.
+2. Try Gesture Recognizer + [Model Maker](https://ai.google.dev/edge/mediapipe/solutions/customization/gesture_recognizer) on a tiny custom `point_any_direction` class — if Model Maker closes the gap with ~50–200 photos, the full synthetic pipeline may be overkill for what's left of Hand_AI's vocabulary.
+
+Neither follow-up has run yet.
+
 ## Phase 1 — Synthetic baseline that beats v2.2 heuristics
 
 **Goal:** A trained gesture classifier that beats Hand_AI v2.2 on its own grill-round photos, trained entirely on synthetic data. No volunteers, no mobile-web app, no splats.

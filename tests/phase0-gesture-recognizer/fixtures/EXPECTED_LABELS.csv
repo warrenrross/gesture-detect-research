@@ -1,0 +1,13 @@
+file,expected,pose_notes
+Screenshot-2026-05-21-at-7.43.42-AM.jpg,POINT,"side view, finger pointing left, palm up"
+Screenshot-2026-05-21-at-7.44.02-AM.jpg,POINT,"same hand, fingers slightly more curled"
+Screenshot-2026-05-21-at-7.44.32-AM.jpg,POINT,"hand close to camera, side-on point, thumb extended out"
+Screenshot-2026-05-21-at-7.44.50-AM.jpg,POINT,"palm-up point"
+Screenshot-2026-05-21-at-7.44.58-AM.jpg,POINT,"palm-down point, fingers curled tightly under"
+Screenshot-2026-05-21-at-7.45.43-AM.jpg,POINT,"palm-down point, fingers tucked into palm"
+Screenshot-2026-05-21-at-8.04.41-AM.jpg,POINT,"side point, thumb out under index"
+Screenshot-2026-05-21-at-8.04.59-AM.jpg,POINT,"side point, thumb tucked"
+Screenshot-2026-05-21-at-8.05.24-AM.jpg,POINT,"palm-down point, thumb extended way out"
+Screenshot-2026-05-21-at-8.05.38-AM.jpg,POINT,"palm-down point (HUD verdict: red tip ✓)"
+Screenshot-2026-05-21-at-8.05.49-AM.jpg,POINT,"palm-down point, thumb out"
+Screenshot-2026-05-21-at-8.05.58-AM.jpg,POINT,"palm-down point (HUD verdict: red tip ✓)"

@@ -1,0 +1,10 @@
+# Local environment artifacts — never commit
+.venv-mp/
+models/
+fixtures/photos/
+phase0_results.csv
+
+# Common Python artifacts
+__pycache__/
+*.pyc
+.DS_Store
