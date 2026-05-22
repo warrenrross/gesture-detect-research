@@ -1,6 +1,7 @@
 # Synthetic hand rendering — MANO, NIMBLE, DART, HandSynthesis
 
 > **Parent:** [RESEARCH.md §8](../RESEARCH.md#8-custom-dataset-capture--concept-and-components)
+> **See also:** [`docs/experiments/phase0b-model-maker-paths.md`](./experiments/phase0b-model-maker-paths.md) — Path B applies a miniature version of this rendering pipeline to feed MediaPipe Model Maker, as a cheap dry run for Phase 1's sim-to-real gap.
 > **Position in architecture:** [Layer 1 — the load-bearing one](./dataset-architecture.md#layer-1--synthetic-baseline-day-1-no-users-needed)
 > **Siblings:** [dataset-architecture](./dataset-architecture.md) · [gaussian-splats](./gaussian-splats.md) · [mobile-capture-pipeline](./mobile-capture-pipeline.md) · [open-questions](./open-questions.md)
 
