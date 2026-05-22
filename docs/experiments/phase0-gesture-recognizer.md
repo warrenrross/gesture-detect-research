@@ -3,6 +3,8 @@
 > **Date:** 2026-05-21
 > **Operator:** Computer (sandbox) + Warren (photos)
 > **Parent:** [`docs/roadmap.md` — Phase 0](../roadmap.md#phase-0--decide-whether-to-build-any-of-this-blocking)
+> **Architecture note:** [`docs/architecture-classification-vs-localization.md`](../architecture-classification-vs-localization.md)
+> **Follow-up plan:** [`docs/experiments/phase0b-model-maker-paths.md`](./phase0b-model-maker-paths.md)
 > **Reproducible bundle:** [`tests/phase0-gesture-recognizer/`](../../tests/phase0-gesture-recognizer/)
 > **Status:** Inconclusive due to methodology caveats. Recommend proceeding to Phase 1 cautiously, with a follow-up cleaner experiment as #2 below.
 

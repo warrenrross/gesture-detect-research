@@ -52,7 +52,7 @@ Headline numbers on the 12 v2.2 grill-round photos, all ground-truth POINT:
 1. Rerun on raw webcam frames (not screenshots) to separate detection failure from classification failure.
 2. Try Gesture Recognizer + [Model Maker](https://ai.google.dev/edge/mediapipe/solutions/customization/gesture_recognizer) on a tiny custom `point_any_direction` class — if Model Maker closes the gap with ~50–200 photos, the full synthetic pipeline may be overkill for what's left of Hand_AI's vocabulary.
 
-Neither follow-up has run yet.
+The Model Maker follow-up is now spec'd in detail in [`docs/experiments/phase0b-model-maker-paths.md`](./experiments/phase0b-model-maker-paths.md) — two testing paths (real photos + in-game test vs. synthetic renders + held-out evaluation) with a recommendation to run the real-photo path first.
 
 ## Phase 1 — Synthetic baseline that beats v2.2 heuristics
 
