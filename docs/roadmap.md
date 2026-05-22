@@ -54,6 +54,8 @@ Headline numbers on the 12 v2.2 grill-round photos, all ground-truth POINT:
 
 The Model Maker follow-up is now spec'd in detail in [`docs/experiments/phase0b-model-maker-paths.md`](./experiments/phase0b-model-maker-paths.md) — two testing paths (real photos + in-game test vs. synthetic renders + held-out evaluation) with a recommendation to run the real-photo path first.
 
+The in-game testing capability that Path A depends on doesn't exist yet — Hand_AI today loads `HandLandmarker` only, with v2.2 heuristics doing all classification. The integration work to enable in-game evaluation of any learned classifier is roadmapped in [`docs/experiments/phase0c-hand-ai-fork-roadmap.md`](./experiments/phase0c-hand-ai-fork-roadmap.md): fork Hand_AI, add a parallel `GestureRecognizer` pipeline, deploy via GitHub Pages with a `?classifier=heuristics|learned|both` A/B query param. **Phase 0c is the prerequisite for the in-game half of Phase 0b Path A** and for any future in-game evaluation of a Model-Maker-trained or Phase 1 synthetic-trained head.
+
 ## Phase 1 — Synthetic baseline that beats v2.2 heuristics
 
 **Goal:** A trained gesture classifier that beats Hand_AI v2.2 on its own grill-round photos, trained entirely on synthetic data. No volunteers, no mobile-web app, no splats.
