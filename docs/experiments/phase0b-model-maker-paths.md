@@ -12,6 +12,8 @@ The cheapest follow-up is to feed [MediaPipe Model Maker](https://ai.google.dev/
 
 **Premise:** Warren swaps the canned `gesture_recognizer.task` in Hand_AI for a Model-Maker-trained one, plays the game, sends back screenshots and a verdict.
 
+> **Prerequisite:** "Swap into Hand_AI" is not actually a drop-in. Hand_AI today loads `HandLandmarker` only — there is no classifier head in the running game to replace. The integration work that adds a `GestureRecognizer` pipeline + A/B query param is roadmapped in [`phase0c-hand-ai-fork-roadmap.md`](./phase0c-hand-ai-fork-roadmap.md) and must land in a Hand_AI fork before this path's in-game step is possible.
+
 ### Steps
 
 1. Warren captures ~50–200 photos per class on his own setup (same webcam, same lighting as the game), organized as:
